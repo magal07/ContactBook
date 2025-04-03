@@ -23,7 +23,12 @@ const { middlewareGlobal, checkCsrfError, csrfMiddleware } = require('./src/midd
 // const { json } = require('stream/consumers');
 
 // Configurações de segurança e middlewares
-app.use(helmet()); // Adiciona cabeçalhos de segurança ao aplicativo.
+// Adiciona cabeçalhos de segurança ao aplicativo.
+app.use(
+  helmet({
+      contentSecurityPolicy: false
+  })
+); 
 // app.use(json()); // Import JSONS
 app.use(express.urlencoded({ extended: true })); // Habilita o parsing de dados enviados pelo formulário (application/x-www-form-urlencoded).
 app.use(express.static(path.resolve(__dirname, 'public'))); // Define o caminho absoluto para arquivos estáticos (ex. imagens, CSS, JS).
