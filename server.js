@@ -16,7 +16,7 @@ const flash = require('connect-flash'); // Importa connect-flash para enviar men
 
 const routes = require('./routes'); // Importa o arquivo de rotas.
 const path = require('path'); // Importa o módulo path para trabalhar com caminhos de arquivos e diretórios.
-const helmet = require('helmet'); // Importa o Helmet para configurar cabeçalhos de segurança.
+// const helmet = require('helmet'); // Importa o Helmet para configurar cabeçalhos de segurança.
 const csrf = require('csurf'); // Importa csurf para proteção contra ataques CSRF (Cross-Site Request Forgery).
 
 const { middlewareGlobal, checkCsrfError, csrfMiddleware } = require('./src/middlewares/middleware'); // Importa middlewares personalizados para lógica adicional.
@@ -24,11 +24,11 @@ const { middlewareGlobal, checkCsrfError, csrfMiddleware } = require('./src/midd
 
 // Configurações de segurança e middlewares
 // Adiciona cabeçalhos de segurança ao aplicativo.
-app.use(
-  helmet({
-      contentSecurityPolicy: false
-  })
-); 
+// app.use(
+//   helmet({
+//       contentSecurityPolicy: false
+//   })
+// ); 
 // app.use(json()); // Import JSONS
 app.use(express.urlencoded({ extended: true })); // Habilita o parsing de dados enviados pelo formulário (application/x-www-form-urlencoded).
 app.use(express.static(path.resolve(__dirname, 'public'))); // Define o caminho absoluto para arquivos estáticos (ex. imagens, CSS, JS).
